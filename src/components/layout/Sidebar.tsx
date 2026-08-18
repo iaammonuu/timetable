@@ -33,10 +33,10 @@ export const Sidebar: React.FC = () => {
     activeTab,
     setActiveTab,
     profile,
-    overallAttendancePercentage,
     assignments,
     exams,
     todayClasses,
+    sidebarCollapsed,
   } = useApp();
 
   const pendingAssignmentsCount = assignments.filter(
@@ -76,13 +76,13 @@ export const Sidebar: React.FC = () => {
   ];
 
   return (
-    <aside className="hidden lg:flex w-64 shrink-0 flex-col justify-between border-r border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl h-full transition-colors select-none">
+    <aside
+      className={`hidden lg:flex shrink-0 flex-col justify-between border-r border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl h-full transition-all duration-200 select-none ${
+        sidebarCollapsed ? 'w-18' : 'w-64'
+      }`}
+    >
       {/* Navigation List */}
-      <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1 custom-scrollbar">
-        <div className="px-3 pb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-          Academic OS
-        </div>
-
+      <div className={`flex-1 overflow-y-auto ${sidebarCollapsed ? 'px-2 py-3' : 'px-3 py-3'} space-y-1.5 custom-scrollbar`}>
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive =
@@ -93,22 +93,25 @@ export const Sidebar: React.FC = () => {
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`group flex w-full items-center justify-between rounded-xl px-3 py-2 text-xs font-medium transition-all ${
+              title={sidebarCollapsed ? item.label : undefined}
+              className={`group relative flex w-full items-center ${
+                sidebarCollapsed ? 'justify-center p-2.5' : 'justify-between px-3 py-2'
+              } rounded-xl text-xs font-medium transition-all ${
                 isActive
                   ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20 font-semibold'
                   : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-slate-100'
               }`}
             >
-              <div className="flex items-center gap-2.5">
+              <div className={`flex items-center ${sidebarCollapsed ? 'justify-center' : 'gap-2.5'}`}>
                 <Icon
-                  className={`h-4 w-4 transition-transform group-hover:scale-110 ${
+                  className={`h-4 w-4 shrink-0 transition-transform group-hover:scale-110 ${
                     isActive ? 'text-white' : 'text-slate-500 dark:text-slate-400'
                   }`}
                 />
-                <span>{item.label}</span>
+                {!sidebarCollapsed && <span>{item.label}</span>}
               </div>
 
-              {item.badge !== undefined && (
+              {!sidebarCollapsed && item.badge !== undefined && (
                 <span
                   className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
                     isActive ? 'bg-white/20 text-white' : item.badgeColor || 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
@@ -117,36 +120,47 @@ export const Sidebar: React.FC = () => {
                   {item.badge}
                 </span>
               )}
+
+              {/* Floating dot for collapsed sidebar badge */}
+              {sidebarCollapsed && item.badge !== undefined && (
+                <span className="absolute top-1.5 right-1.5 flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+              )}
             </button>
           );
         })}
       </div>
 
       {/* Bottom Student Profile Card */}
-      <div className="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40">
+      <div className={`${sidebarCollapsed ? 'p-2' : 'p-3'} border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40`}>
         <div
           onClick={() => setActiveTab('settings')}
-          className="flex items-center gap-3 rounded-xl p-2 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800/60 transition group"
+          title={sidebarCollapsed ? `${profile.name} (Settings)` : undefined}
+          className={`flex items-center ${sidebarCollapsed ? 'justify-center' : 'gap-3'} rounded-xl p-2 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800/60 transition group`}
         >
           <img
             src={profile.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'}
             alt="Student"
-            className="h-9 w-9 rounded-xl object-cover ring-2 ring-blue-500/30"
+            className="h-8 w-8 rounded-xl object-cover ring-2 ring-blue-500/30 shrink-0"
             referrerPolicy="no-referrer"
           />
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between">
-              <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">
-                {profile.name}
-              </h4>
-              <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+          {!sidebarCollapsed && (
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">
+                  {profile.name}
+                </h4>
+                <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+              <div className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400">
+                <span className="truncate">{profile.course}</span>
+                <span>•</span>
+                <span className="font-mono font-medium">Sem {profile.semester}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400">
-              <span className="truncate">{profile.course}</span>
-              <span>•</span>
-              <span className="font-mono font-medium">Sem {profile.semester}</span>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </aside>

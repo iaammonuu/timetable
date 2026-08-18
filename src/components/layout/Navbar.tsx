@@ -22,6 +22,8 @@ import {
   Settings,
   X,
   Plus,
+  PanelLeftClose,
+  PanelLeft,
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { DayOfWeek } from '../../types';
@@ -46,6 +48,8 @@ export const Navbar: React.FC = () => {
     openWhatsAppModalForDay,
     openCalendarModal,
     setCommandPaletteOpen,
+    sidebarCollapsed,
+    toggleSidebar,
     profile,
     updateProfile,
     showToast,
@@ -155,11 +159,13 @@ export const Navbar: React.FC = () => {
       {/* Left: Recreated Brand & Search Section */}
       <div className="flex items-center gap-3 md:gap-4">
         {/* Brand Button & Logo Container */}
-        <div className="flex items-center gap-2">
-          <div
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <button
+            type="button"
             onClick={() => setActiveTab('dashboard')}
-            className="group flex items-center cursor-pointer select-none"
+            className="group flex items-center cursor-pointer select-none rounded-xl focus:outline-hidden"
             title="Go to Dashboard"
+            aria-label="Go to Dashboard"
           >
             {/* Custom Logo Image or Gradient Icon */}
             {profile.logoUrl ? (
@@ -174,7 +180,22 @@ export const Navbar: React.FC = () => {
                 <Sparkles className="h-5 w-5" />
               </div>
             )}
-          </div>
+          </button>
+
+          {/* Desktop Sidebar Navigation Toggle Button */}
+          <button
+            type="button"
+            onClick={toggleSidebar}
+            className="hidden lg:flex items-center justify-center h-8 w-8 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+            title={sidebarCollapsed ? "Expand Sidebar Menu" : "Collapse Sidebar Menu"}
+            aria-label="Toggle Sidebar Navigation"
+          >
+            {sidebarCollapsed ? (
+              <PanelLeft className="h-4 w-4" />
+            ) : (
+              <PanelLeftClose className="h-4 w-4" />
+            )}
+          </button>
         </div>
 
         {/* Global Search / Command Bar Trigger Button */}

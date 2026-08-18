@@ -125,6 +125,9 @@ interface AppContextType {
   addNotification: (item: Omit<NotificationItem, 'id' | 'timestamp'>) => void;
 
   // Modals & Triggers
+  sidebarCollapsed: boolean;
+  setSidebarCollapsed: (collapsed: boolean | ((prev: boolean) => boolean)) => void;
+  toggleSidebar: () => void;
   focusModeOpen: boolean;
   setFocusModeOpen: (open: boolean) => void;
   whatsappModalOpen: boolean;
@@ -165,8 +168,15 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
+const DATA_VERSION = 'v4_2026_08';
+
 function getInitial<T>(key: string, defaultVal: T): T {
   try {
+    // If data version is old, return default values for timetable & subjects to ensure new updates reflect immediately
+    const savedVersion = localStorage.getItem('studyos_data_version');
+    if (savedVersion !== DATA_VERSION && (key === 'timetable' || key === 'subjects')) {
+      return defaultVal;
+    }
     const saved = localStorage.getItem(`studyos_${key}`);
     if (saved) {
       return JSON.parse(saved);
@@ -202,7 +212,11 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [studySessions, setStudySessions] = useState<StudySessionLog[]>(() => getInitial('studySessions', defaultStudySessions));
   const [notifications, setNotifications] = useState<NotificationItem[]>(() => getInitial('notifications', defaultNotifications));
 
-  // Modals
+  // Modals & Layout
+  const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(() => {
+    return getInitial<boolean>('sidebar_collapsed', false);
+  });
+  const toggleSidebar = () => setSidebarCollapsed((prev) => !prev);
   const [focusModeOpen, setFocusModeOpen] = useState(false);
   const [whatsappModalOpen, setWhatsAppModalOpen] = useState(false);
   const [whatsappTargetDay, setWhatsAppTargetDay] = useState<DayOfWeek>('Monday');
@@ -216,7 +230,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const closeCalendarModal = () => setCalendarModalOpen(false);
 
   // Persist to localStorage
+  useEffect(() => { localStorage.setItem('studyos_data_version', DATA_VERSION); }, []);
   useEffect(() => { localStorage.setItem('studyos_theme', JSON.stringify(theme)); }, [theme]);
+  useEffect(() => { localStorage.setItem('studyos_sidebar_collapsed', JSON.stringify(sidebarCollapsed)); }, [sidebarCollapsed]);
   useEffect(() => { localStorage.setItem('studyos_profile', JSON.stringify(profile)); }, [profile]);
   useEffect(() => { localStorage.setItem('studyos_subjects', JSON.stringify(subjects)); }, [subjects]);
   useEffect(() => { localStorage.setItem('studyos_timetable', JSON.stringify(timetable)); }, [timetable]);
@@ -786,6 +802,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         markAllNotificationsRead,
         clearNotifications,
         addNotification,
+        sidebarCollapsed,
+        setSidebarCollapsed,
+        toggleSidebar,
         focusModeOpen,
         setFocusModeOpen,
         whatsappModalOpen,

@@ -34,8 +34,8 @@ export const defaultSubjects: Subject[] = [
     color: '#3B82F6', // Blue
     totalClasses: 32,
     attendedClasses: 28,
-    faculty: 'Dr. Rajesh Sharma',
-    defaultRoom: '3102-BL3-GF',
+    faculty: 'Mr. Syed Nawaz Pasha',
+    defaultRoom: '10005-BL10-GF',
     credits: 4,
     studyHours: 14.5,
     syllabus: [
@@ -53,8 +53,8 @@ export const defaultSubjects: Subject[] = [
     color: '#06B6D4', // Cyan
     totalClasses: 26,
     attendedClasses: 22,
-    faculty: 'Prof. Amit Verma',
-    defaultRoom: '4201-BL4-FF',
+    faculty: 'Mr. Bediga Sharan',
+    defaultRoom: '3201-B_BL3-SF',
     credits: 3,
     studyHours: 11.0,
     syllabus: [
@@ -72,8 +72,8 @@ export const defaultSubjects: Subject[] = [
     color: '#8B5CF6', // Purple
     totalClasses: 38,
     attendedClasses: 34,
-    faculty: 'Dr. Sandeep Nair',
-    defaultRoom: '8108-BL8-FF',
+    faculty: 'Dr. KRISHNA BHARAT L',
+    defaultRoom: '10104-BL10-FF',
     credits: 4,
     studyHours: 19.5,
     syllabus: [
@@ -91,8 +91,8 @@ export const defaultSubjects: Subject[] = [
     color: '#10B981', // Emerald
     totalClasses: 36,
     attendedClasses: 32,
-    faculty: 'Prof. Kavita Patel',
-    defaultRoom: '5104-BL5-SF',
+    faculty: 'Mr. Vijay Kumar B',
+    defaultRoom: '11102-A_BL11-FF',
     credits: 4,
     studyHours: 18.0,
     syllabus: [
@@ -110,8 +110,8 @@ export const defaultSubjects: Subject[] = [
     color: '#F59E0B', // Amber
     totalClasses: 28,
     attendedClasses: 26,
-    faculty: 'Prof. Rahul Menon',
-    defaultRoom: '6102-BL6-GF',
+    faculty: 'Mr. Kasharaju Balakrishna',
+    defaultRoom: '3107-B_BL3-FF',
     credits: 3,
     studyHours: 15.0,
     syllabus: [
@@ -128,7 +128,7 @@ export const defaultSubjects: Subject[] = [
     color: '#EC4899', // Pink
     totalClasses: 30,
     attendedClasses: 25,
-    faculty: 'Dr. Meera Iyer',
+    faculty: 'Dr. Madarapu Sandeep',
     defaultRoom: '8108-BL8-FF',
     credits: 3,
     studyHours: 13.0,
@@ -143,7 +143,7 @@ export const defaultSubjects: Subject[] = [
 ];
 
 export const defaultTimetable: TimetableClass[] = [
-  // Monday
+  // ===================== MONDAY =====================
   {
     id: 'mon-1',
     day: 'Monday',
@@ -152,8 +152,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-ims',
     subjectName: 'Information Management System',
     type: 'Lecture',
-    room: '3102-BL3-GF',
-    faculty: 'Dr. Rajesh Sharma',
+    room: '10005-BL10-GF',
+    faculty: 'Mr. Syed Nawaz Pasha',
     batch: '25CAIBTCSB52',
   },
   {
@@ -164,8 +164,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-cc',
     subjectName: 'Cloud Computing',
     type: 'Lab',
-    room: '4201-BL4-FF',
-    faculty: 'Prof. Amit Verma',
+    room: '3201-B_BL3-SF',
+    faculty: 'Mr. Bediga Sharan',
     batch: '25CAIBTCSB52',
   },
   {
@@ -176,8 +176,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-cc',
     subjectName: 'Cloud Computing',
     type: 'Lab',
-    room: '4201-BL4-FF',
-    faculty: 'Prof. Amit Verma',
+    room: '3201-B_BL3-SF',
+    faculty: 'Mr. Bediga Sharan',
     batch: '25CAIBTCSB52',
   },
   {
@@ -188,8 +188,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-oscn',
     subjectName: 'Operating Systems and Computer Networks',
     type: 'Lecture',
-    room: '8108-BL8-FF',
-    faculty: 'Dr. Sandeep Nair',
+    room: '10104-BL10-FF',
+    faculty: 'Dr. KRISHNA BHARAT L',
     batch: '25CAIBTCSB52',
   },
   {
@@ -200,8 +200,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-wtmp',
     subjectName: 'Web Technologies and Mobile Programming',
     type: 'Lab',
-    room: '5104-BL5-SF',
-    faculty: 'Prof. Kavita Patel',
+    room: '11102-B_BL11-FF',
+    faculty: 'Intern-10',
     batch: '25CAIBTCSB52',
   },
   {
@@ -212,12 +212,12 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-wtmp',
     subjectName: 'Web Technologies and Mobile Programming',
     type: 'Lab',
-    room: '5104-BL5-SF',
-    faculty: 'Prof. Kavita Patel',
+    room: '11102-B_BL11-FF',
+    faculty: 'Intern-10',
     batch: '25CAIBTCSB52',
   },
 
-  // Tuesday
+  // ===================== TUESDAY =====================
   {
     id: 'tue-1',
     day: 'Tuesday',
@@ -226,8 +226,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-ims',
     subjectName: 'Information Management System',
     type: 'Lecture',
-    room: '3102-BL3-GF',
-    faculty: 'Dr. Rajesh Sharma',
+    room: '8208-BL8-SF',
+    faculty: 'Mr. Syed Nawaz Pasha',
     batch: '25CAIBTCSB52',
   },
   {
@@ -238,8 +238,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-aiac',
     subjectName: 'AI Assisted Coding',
     type: 'Lab',
-    room: '6102-BL6-GF',
-    faculty: 'Prof. Rahul Menon',
+    room: '3107-B_BL3-FF',
+    faculty: 'Mr. Kasharaju Balakrishna',
     batch: '25CAIBTCSB52',
   },
   {
@@ -250,8 +250,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-aiac',
     subjectName: 'AI Assisted Coding',
     type: 'Lab',
-    room: '6102-BL6-GF',
-    faculty: 'Prof. Rahul Menon',
+    room: '3107-B_BL3-FF',
+    faculty: 'Mr. Kasharaju Balakrishna',
     batch: '25CAIBTCSB52',
   },
   {
@@ -262,8 +262,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-dav',
     subjectName: 'Data Analytics and Visualization',
     type: 'Lecture',
-    room: '8108-BL8-FF',
-    faculty: 'Dr. Meera Iyer',
+    room: '8208-BL8-SF',
+    faculty: 'Dr. Madarapu Sandeep',
     batch: '25CAIBTCSB52',
   },
   {
@@ -274,8 +274,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-wtmp',
     subjectName: 'Web Technologies and Mobile Programming',
     type: 'Lecture',
-    room: '5102-BL5-FF',
-    faculty: 'Prof. Kavita Patel',
+    room: '10104-BL10-FF',
+    faculty: 'Mr. Vijay Kumar B',
     batch: '25CAIBTCSB52',
   },
   {
@@ -286,12 +286,12 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-oscn',
     subjectName: 'Operating Systems and Computer Networks',
     type: 'Lecture',
-    room: '8108-BL8-FF',
-    faculty: 'Dr. Sandeep Nair',
+    room: '10104-BL10-FF',
+    faculty: 'Dr. KRISHNA BHARAT L',
     batch: '25CAIBTCSB52',
   },
 
-  // Wednesday
+  // ===================== WEDNESDAY =====================
   {
     id: 'wed-1',
     day: 'Wednesday',
@@ -300,8 +300,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-wtmp',
     subjectName: 'Web Technologies and Mobile Programming',
     type: 'Lab',
-    room: '5104-BL5-SF',
-    faculty: 'Prof. Kavita Patel',
+    room: '11102-A_BL11-FF',
+    faculty: 'Mr. Vijay Kumar B',
     batch: '25CAIBTCSB52',
   },
   {
@@ -312,8 +312,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-wtmp',
     subjectName: 'Web Technologies and Mobile Programming',
     type: 'Lab',
-    room: '5104-BL5-SF',
-    faculty: 'Prof. Kavita Patel',
+    room: '11102-A_BL11-FF',
+    faculty: 'Mr. Vijay Kumar B',
     batch: '25CAIBTCSB52',
   },
   {
@@ -324,8 +324,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-ims',
     subjectName: 'Information Management System',
     type: 'Lecture',
-    room: '3102-BL3-GF',
-    faculty: 'Dr. Rajesh Sharma',
+    room: '8209-BL8-SF',
+    faculty: 'Mr. Syed Nawaz Pasha',
     batch: '25CAIBTCSB52',
   },
   {
@@ -336,8 +336,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-oscn',
     subjectName: 'Operating Systems and Computer Networks',
     type: 'Lecture',
-    room: '8108-BL8-FF',
-    faculty: 'Dr. Sandeep Nair',
+    room: '10005-BL10-GF',
+    faculty: 'Dr. KRISHNA BHARAT L',
     batch: '25CAIBTCSB52',
   },
   {
@@ -348,12 +348,12 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-cc',
     subjectName: 'Cloud Computing',
     type: 'Lecture',
-    room: '4201-BL4-FF',
-    faculty: 'Prof. Amit Verma',
+    room: '11010-BL11-GF',
+    faculty: 'Mr. Bediga Sharan',
     batch: '25CAIBTCSB52',
   },
 
-  // Thursday
+  // ===================== THURSDAY =====================
   {
     id: 'thu-1',
     day: 'Thursday',
@@ -362,8 +362,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-dav',
     subjectName: 'Data Analytics and Visualization',
     type: 'Lab',
-    room: '8104-BL8-GF',
-    faculty: 'Dr. Meera Iyer',
+    room: '10001-B_BL10-GF',
+    faculty: 'Dr. Madarapu Sandeep',
     batch: '25CAIBTCSB52',
   },
   {
@@ -374,8 +374,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-dav',
     subjectName: 'Data Analytics and Visualization',
     type: 'Lab',
-    room: '8104-BL8-GF',
-    faculty: 'Dr. Meera Iyer',
+    room: '10001-B_BL10-GF',
+    faculty: 'Dr. Madarapu Sandeep',
     batch: '25CAIBTCSB52',
   },
   {
@@ -386,8 +386,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-oscn',
     subjectName: 'Operating Systems and Computer Networks',
     type: 'Lab',
-    room: '8108-BL8-FF',
-    faculty: 'Dr. Sandeep Nair',
+    room: '3212-BL3-SF',
+    faculty: 'Dr. KRISHNA BHARAT L',
     batch: '25CAIBTCSB52',
   },
   {
@@ -398,8 +398,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-oscn',
     subjectName: 'Operating Systems and Computer Networks',
     type: 'Lab',
-    room: '8108-BL8-FF',
-    faculty: 'Dr. Sandeep Nair',
+    room: '3212-BL3-SF',
+    faculty: 'Dr. KRISHNA BHARAT L',
     batch: '25CAIBTCSB52',
   },
   {
@@ -410,8 +410,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-aiac',
     subjectName: 'AI Assisted Coding',
     type: 'Lab',
-    room: '6102-BL6-GF',
-    faculty: 'Prof. Rahul Menon',
+    room: '3102-B_BL3-FF',
+    faculty: 'Mr. Kasharaju Balakrishna',
     batch: '25CAIBTCSB52',
   },
   {
@@ -422,12 +422,12 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-aiac',
     subjectName: 'AI Assisted Coding',
     type: 'Lab',
-    room: '6102-BL6-GF',
-    faculty: 'Prof. Rahul Menon',
+    room: '3102-B_BL3-FF',
+    faculty: 'Mr. Kasharaju Balakrishna',
     batch: '25CAIBTCSB52',
   },
 
-  // Friday
+  // ===================== FRIDAY =====================
   {
     id: 'fri-1',
     day: 'Friday',
@@ -437,7 +437,7 @@ export const defaultTimetable: TimetableClass[] = [
     subjectName: 'Data Analytics and Visualization',
     type: 'Lecture',
     room: '8108-BL8-FF',
-    faculty: 'Dr. Meera Iyer',
+    faculty: 'Dr. Madarapu Sandeep',
     batch: '25CAIBTCSB52',
   },
   {
@@ -448,8 +448,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-ims',
     subjectName: 'Information Management System',
     type: 'Lab',
-    room: '3107-BL3-FF',
-    faculty: 'Dr. Rajesh Sharma',
+    room: '3107-B_BL3-FF',
+    faculty: 'Mr. Syed Nawaz Pasha',
     batch: '25CAIBTCSB52',
   },
   {
@@ -460,8 +460,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-ims',
     subjectName: 'Information Management System',
     type: 'Lab',
-    room: '3107-BL3-FF',
-    faculty: 'Dr. Rajesh Sharma',
+    room: '3107-B_BL3-FF',
+    faculty: 'Mr. Syed Nawaz Pasha',
     batch: '25CAIBTCSB52',
   },
   {
@@ -472,8 +472,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-wtmp',
     subjectName: 'Web Technologies and Mobile Programming',
     type: 'Lecture',
-    room: '5102-BL5-FF',
-    faculty: 'Prof. Kavita Patel',
+    room: '11007-BL11-GF',
+    faculty: 'Mr. Vijay Kumar B',
     batch: '25CAIBTCSB52',
   },
   {
@@ -484,8 +484,8 @@ export const defaultTimetable: TimetableClass[] = [
     subjectId: 'sub-oscn',
     subjectName: 'Operating Systems and Computer Networks',
     type: 'Lecture',
-    room: '8108-BL8-FF',
-    faculty: 'Dr. Sandeep Nair',
+    room: '8209-BL8-SF',
+    faculty: 'Dr. KRISHNA BHARAT L',
     batch: '25CAIBTCSB52',
   },
 ];
