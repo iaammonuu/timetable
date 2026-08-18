@@ -1,0 +1,6 @@
+{
+  "name": "STUDYOS — Student Academic & Productivity Dashboard",
+  "description": "A student productivity & academic operating system for B.Tech CSE students featuring live timetable, attendance calculator, smart study planner, Pomodoro focus mode, coding streak tracker, assignment manager, exam countdowns, and WhatsApp day-wise room dispatcher.",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
